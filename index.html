@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My experiment</title>
+       
+        <!-- Scripts: -->
+        <script src="jspsych-6.0.3/jspsych.js"></script>
+        <script src="jspsych-6.0.3/plugins/jspsych-external-html.js"></script>
+        <script src="jspsych-6.0.3/plugins/jspsych-html-keyboard-response.js"></script>
+        <script src="jspsych-6.0.3/plugins/jspsych-image-keyboard-response.js"></script>
+        <script src = "https://d3js.org/d3.v4.min.js"></script>
+        
+        <!-- Style: -->
+        <link href="jspsych-6.0.3/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+
+    </head>
+
+    <body></body>
+
+    <script>
+
+    	var timeline = [];
+
+	    // Fixation cross between trials
+	    var fixation = {
+	      type: 'html-keyboard-response',
+	      stimulus: '<div style="font-size:60px;">+</div>',
+	      choices: jsPsych.NO_KEYS, //No responses will be accepted as a valid response.
+	      trial_duration: function(){
+	      	return jsPsych.randomization.sampleWithoutReplacement([250, 500, 750, 1000], 1)[0];
+	      },
+	      data: {test_part: 'fixation'}
+	    };
+
+      // D3 graph as external-html
+      var d3 = {
+          type:'external-html',
+          url: "http://localhost:8080/d3_chart.html",
+          cont_btn: "start",
+          execute_Script: true
+      };
+
+	    var test_procedure = {
+	      timeline: [d3, fixation],
+	      randomize_order: true,
+	      repetitions: 5
+	    };
+
+      timeline.push(test_procedure);
+
+    	// Start experiment -----------------------------------------
+    	jsPsych.init({
+    		timeline: timeline,
+    		on_finish: function(){ //displays the data for each trial - good for debugging
+    			jsPsych.data.displayData();
+    		}
+    	});
+
+    </script>
+</html>
