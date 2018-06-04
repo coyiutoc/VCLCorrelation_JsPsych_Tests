@@ -136,19 +136,19 @@
                 }
             ],
             timeline_variables: [
-                // Congruent trials
-                { stimuli: svg.left_stimuli, queue: svg.left_prompt, 
-                    data: {test_part: 'trial', correct_response: 'n', test_type: 'congruent', direction: 'left' }},
+                    // Congruent trials
+                    { stimuli: svg.left_stimuli, queue: svg.left_prompt, 
+                        data: {test_part: 'trial', correct_response: 'n', test_type: 'congruent', direction: 'left' }},
 
-                { stimuli: svg.right_stimuli, queue: svg.right_prompt, 
-                    data: {test_part: 'trial', correct_response: 'm', test_type: 'congruent', direction: 'right' }},
+                    { stimuli: svg.right_stimuli, queue: svg.right_prompt, 
+                        data: {test_part: 'trial', correct_response: 'm', test_type: 'congruent', direction: 'right' }},
 
-                // Incongruent trials
-                { stimuli: svg.left_stimuli, queue: svg.right_prompt, 
-                    data: {test_part: 'trial', correct_response: 'n', test_type: 'incongruent', direction: 'left' }},
+                    // Incongruent trials
+                    { stimuli: svg.left_stimuli, queue: svg.right_prompt, 
+                        data: {test_part: 'trial', correct_response: 'n', test_type: 'incongruent', direction: 'left' }},
 
-                { stimuli: svg.right_stimuli, queue: svg.left_prompt, 
-                    data: {test_part: 'trial', correct_response: 'm', test_type: 'incongruent', direction: 'right' }}
+                    { stimuli: svg.right_stimuli, queue: svg.left_prompt, 
+                        data: {test_part: 'trial', correct_response: 'm', test_type: 'incongruent', direction: 'right' }}
             ],
             sample: {
                 type: 'fixed-repetitions',
